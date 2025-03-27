@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:10:43 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/24 17:31:56 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:39:30 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int ft_strcmp(char *s1, char *s2)
 	return(*s1 - *s2);
 }
 
-int		count_lines(int fd, t_long *data) //need to fix for last line 
+int		count_lines(int fd, t_long *data)
 {
 	int		lines;
 	char	*str = get_next_line(fd);
@@ -34,14 +34,12 @@ int		count_lines(int fd, t_long *data) //need to fix for last line
 	{
 		if (c == 0)
 		{
-			data->line_len = ft_strlen(str);
-			//printf(" zizi :%d\n", data->line_len);
+			data->line_len = ft_strlenn(str);
 			c++;
 		}
-		//printf("%d\n", ft_strlen(str));
-		if (ft_strlen(str) != data->line_len)
+		if (ft_strlenn(str) != data->line_len)
 		{
-			printf("ERROR : tailles lignes");
+			printf("ERROR : tailles lignes\n");
 			return(0);
 		}
 		lines++;
@@ -58,7 +56,11 @@ int	ft_strlenn(char *str)
 
 	len = 0;
 	while (str[len] != '\n')
+	{
+		if (str[len] == '\0')
+			return(len);
 		len++;
+	}
 	return (len);
 }
 

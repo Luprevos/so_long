@@ -6,7 +6,7 @@
 #    By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/24 19:16:50 by luprevos          #+#    #+#              #
-#    Updated: 2025/03/26 11:38:36 by luprevos         ###   ########.fr        #
+#    Updated: 2025/03/26 16:50:44 by luprevos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC = get_next_line/get_next_line.c \
       parsing.c\
       parsingmap.c\
       utils.c\
-	  main.c
+	  main.c\
+	  windowparams.c
 
 OBJ = $(SRC:.c=.o)
 

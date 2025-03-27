@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:24:26 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/26 11:36:32 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:40:04 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 #define ITEM 'C'
 #define EXIT 'E'
 #define VIDE '0'
+#define IMAGEWEIGTH 64
 
 
 typedef struct s_long
@@ -40,6 +41,9 @@ typedef struct s_long
 	bool	exit;
 	int		item;
 	int		C;
+
+	void *mlx;
+	void *mlx_win;
 	
 }		t_long;
 
@@ -68,6 +72,14 @@ void map_is_map(t_long *data);
 //flood_fill
 void flood_fill(t_long *data, int i, int j);
 int perfect_parsing(t_long *data);
+
+//mlx
+int new_window_mlx(t_long *data);
+int	close_window(int keycode, void *param);
+int close_window_for_x(void *param);
+void print_grass(t_long *data);
+void print_map(t_long *data);
+
 
 
 #endif

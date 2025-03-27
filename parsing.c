@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:00:16 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/24 18:19:19 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:38:39 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void check_first_last_line(t_long *data)
 		i = data->line_number - 1;
 		while (map[i][j] == '1')
 			j++;
-		if (map[i][j] != '\n')
+		if (map[i][j] != '\0')
 		{
 			printf("ERROR : dermiere ligne mal definit\n");
 			exit(1);
