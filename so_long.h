@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:24:26 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/27 16:40:04 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/29 00:15:03 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int check_ber(char *filename);
 void check_first_last_characters(t_long *data);
 void check_first_last_line(t_long *data);
 void check_map_format(t_long *data);
+char **ft_mapdup(t_long *data);
 
 //parsingmap
 void get_player(t_long *data);
@@ -70,16 +71,25 @@ void check_over(t_long *data);
 void map_is_map(t_long *data);
 
 //flood_fill
-void flood_fill(t_long *data, int i, int j);
+void flood_fill(t_long *data, int i, int j, char **temp);
 int perfect_parsing(t_long *data);
 
 //mlx
 int new_window_mlx(t_long *data);
 int	close_window(int keycode, void *param);
 int close_window_for_x(void *param);
-void print_grass(t_long *data);
 void print_map(t_long *data);
+void print_exit(t_long *data, char **map);
 
+//texture
+void print_void(t_long *data);
+void print_grass(t_long *data);
+void print_item(t_long *data);
+void print_player(t_long *data);
+void print_exitclose(t_long *data);
+
+//texture2
+void print_exitopen(t_long *data);
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:00:16 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/27 16:38:39 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:24:32 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,24 @@ void check_map_format(t_long *data)
 		}
 		i++;
 	}
-	
+}
+
+char** ft_mapdup(t_long *data)
+{
+	char** dest;
+	int i;
+
+	dest = NULL;
+	i = 0;
+	dest = malloc(sizeof(char*) * (data->line_number + 1));
+	if (!dest)
+		printf("ERROR : imp de malloc la map");
+	while (i != data->line_number)
+	{
+		dest[i] = ft_strdupmap(data->map[i], data);
+		//printf("%s", data->map[i]);
+		i++;
+	}
+	dest[i] = NULL;
+	return(dest);
 }

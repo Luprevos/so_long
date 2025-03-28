@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:23:52 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/27 15:54:49 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:40:41 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int main(int argc, char **argv)
 	if (perfect_parsing(data) == 0)
 		return(0);
 	//printf("prout\n");
-	//print_map(data);
+	print_map(data);
 	return(0);
 }

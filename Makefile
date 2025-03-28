@@ -6,7 +6,7 @@
 #    By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/24 19:16:50 by luprevos          #+#    #+#              #
-#    Updated: 2025/03/26 16:50:44 by luprevos         ###   ########.fr        #
+#    Updated: 2025/03/29 00:09:12 by luprevos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRC = get_next_line/get_next_line.c \
       parsingmap.c\
       utils.c\
 	  main.c\
-	  windowparams.c
+	  windowparams.c\
+	  texture.c\
+	  texture2.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:10:43 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/27 16:39:30 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:12:51 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,4 @@ void ft_mapcopy(t_long *data, char **argv, int fd)
 		//printf("%s", data->map[i]);
 		i++;
 	}
-	
 }
