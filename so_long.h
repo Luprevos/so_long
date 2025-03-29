@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:24:26 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/29 02:36:45 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/29 03:31:37 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 #define ITEM 'C'
 #define EXIT 'E'
 #define VIDE '0'
+#define EXITCLOSE '2'
 #define IMAGEWEIGTH 64
 
 
@@ -95,6 +96,7 @@ void print_exitclose(t_long *data);
 //texture2
 void print_exitopen(t_long *data);
 void replace_texture(t_long *data);
+void print_playeronexit(t_long *data);
 
 //player
 int player_key(int keycode, t_long *data);

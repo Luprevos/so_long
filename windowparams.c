@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 15:36:04 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/29 02:38:20 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/29 03:34:38 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ void print_exit(t_long *data, char **map)
 		else
 			print_exitclose(data);
 	}
+	if (data->map[data->playery][data->playerx] == EXIT && data->item > 0)
+		print_playeronexit(data);
+		
 }
 
 int	close_window(int keycode, void *param)

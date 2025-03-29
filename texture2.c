@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 00:08:11 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/29 02:30:07 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/29 03:34:19 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,15 @@ void replace_texture(t_long *data)
 		data->item--;
 		data->map[data->playery][data->playerx] = VIDE;
 	}
+}
+void print_playeronexit(t_long *data)
+{
+	void *img;
+	int *i;
+	int a;
+
+	a = IMAGEWEIGTH;
+	i = &a;
+	img = mlx_xpm_file_to_image(data->mlx, "image/playeronexit.xpm", i, i);
+	mlx_put_image_to_window(data->mlx, data->mlx_win, img, data->playerx*IMAGEWEIGTH, data->playery*IMAGEWEIGTH);	
 }
