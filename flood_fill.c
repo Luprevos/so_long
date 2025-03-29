@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 14:34:41 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/27 17:26:51 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/29 01:17:13 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int perfect_parsing(t_long *data)
 	j = data->x;
 	data->exit = false;
 	flood_fill(data, i, j, temp);
+	// printf("%d\n", data->C);
+	// printf("%d\n", data->item);
 	if(data->item != data->C)
 	{
 		printf("ERROR : Item bloquer\n");

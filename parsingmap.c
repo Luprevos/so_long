@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:17:34 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/26 16:49:57 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/29 00:55:33 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void get_player(t_long *data)
 	{
 		data->x = j;
 		data->y = i;
+		data->playerx = j;
+		data->playery = i;
 		data->player = true;
 	}
 }

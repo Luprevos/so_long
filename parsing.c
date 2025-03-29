@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:00:16 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/27 17:24:32 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/29 02:37:27 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void check_map_format(t_long *data)
 		}
 		i++;
 	}
+	data->z = 0;
 }
 
 char** ft_mapdup(t_long *data)
@@ -102,6 +103,7 @@ char** ft_mapdup(t_long *data)
 	char** dest;
 	int i;
 
+	data->move = 0;
 	dest = NULL;
 	i = 0;
 	dest = malloc(sizeof(char*) * (data->line_number + 1));

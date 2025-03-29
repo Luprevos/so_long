@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:24:26 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/29 00:15:03 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/29 02:36:45 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ typedef struct s_long
 	bool	exit;
 	int		item;
 	int		C;
+	int		playerx;
+	int 	playery;
+	int		z;
+	int 	move;
 
 	void *mlx;
 	void *mlx_win;
@@ -83,13 +87,18 @@ void print_exit(t_long *data, char **map);
 
 //texture
 void print_void(t_long *data);
-void print_grass(t_long *data);
+void print_wall(t_long *data);
 void print_item(t_long *data);
 void print_player(t_long *data);
 void print_exitclose(t_long *data);
 
 //texture2
 void print_exitopen(t_long *data);
+void replace_texture(t_long *data);
+
+//player
+int player_key(int keycode, t_long *data);
+int finish(t_long *data);
 
 
 #endif
