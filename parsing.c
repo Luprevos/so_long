@@ -6,35 +6,36 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:00:16 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/29 02:37:27 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:05:24 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int check_ber(char *filename)
+int	check_ber(char *filename)
 {
-	int len;
-	
+	int	len;
+
 	len = strlen(filename);
 	if (len < 4 || ft_strcmp(filename + len - 4, ".ber") != 0)
 	{
 		printf("ERROR : Le fichier n'est pas un .ber\n");
-		return(0);
+		return (0);
 	}
 	else
-		return(1);
+		return (1);
 }
 
-void check_first_last_characters(t_long *data)
+void	check_first_last_characters(t_long *data)
 {
-	char **map;
-	int i;
-	int j;
+	char	**map;
+	int		i;
+	int		j;
+
 	i = 0;
 	j = 0;
 	map = data->map;
-	while(i != data->line_number)
+	while (i != data->line_number)
 	{
 		j = 0;
 		while (map[i][j] && map[i][j] != '\n')
@@ -50,20 +51,20 @@ void check_first_last_characters(t_long *data)
 	}
 }
 
-void check_first_last_line(t_long *data)
+void	check_first_last_line(t_long *data)
 {
-	char **map;
-	int i;
-	int j;
+	char	**map;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
 	map = data->map;
-	if(map[i][j])
+	if (map && map[i][j])
 	{
 		while (map[0][j] == '1')
 			j++;
-		if(map[0][j] != '\n')
+		if (map[0][j] != '\n')
 			printf("ERROR : Premiere ligne mal definit\n");
 		j = 0;
 		i = data->line_number - 1;
@@ -77,16 +78,16 @@ void check_first_last_line(t_long *data)
 	}
 }
 
-void check_map_format(t_long *data)
+void	check_map_format(t_long *data)
 {
-	char **map;
-	int i;
-	int j;
+	char	**map;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
 	map = data->map;
-	while(i != data->line_number)
+	while (i != data->line_number)
 	{
 		if ((ft_strlenn(map[i])) == data->line_number)
 		{
@@ -98,23 +99,22 @@ void check_map_format(t_long *data)
 	data->z = 0;
 }
 
-char** ft_mapdup(t_long *data)
+char	**ft_mapdup(t_long *data)
 {
-	char** dest;
-	int i;
+	char	**dest;
+	int		i;
 
 	data->move = 0;
 	dest = NULL;
 	i = 0;
-	dest = malloc(sizeof(char*) * (data->line_number + 1));
+	dest = malloc(sizeof(char *) * (data->line_number + 1));
 	if (!dest)
 		printf("ERROR : imp de malloc la map");
 	while (i != data->line_number)
 	{
 		dest[i] = ft_strdupmap(data->map[i], data);
-		//printf("%s", data->map[i]);
 		i++;
 	}
 	dest[i] = NULL;
-	return(dest);
+	return (dest);
 }

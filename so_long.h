@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:24:26 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/29 03:31:37 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:03:04 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,16 @@ typedef struct s_long
 	int 	playery;
 	int		z;
 	int 	move;
+	int		j;
 
 	void *mlx;
+	void *wall_img;
+	void *exitclose_img;
+	void *exitopen_img;
+	void *item_img;
+	void *player_img;
+	void *vide_img;
+	void *playeronexit_img;
 	void *mlx_win;
 	
 }		t_long;
@@ -78,12 +86,13 @@ void map_is_map(t_long *data);
 //flood_fill
 void flood_fill(t_long *data, int i, int j, char **temp);
 int perfect_parsing(t_long *data);
+void	free_map(char **map);
 
 //mlx
 int new_window_mlx(t_long *data);
 int	close_window(int keycode, void *param);
 int close_window_for_x(void *param);
-void print_map(t_long *data);
+int print_map(t_long *data);
 void print_exit(t_long *data, char **map);
 
 //texture
@@ -97,6 +106,7 @@ void print_exitclose(t_long *data);
 void print_exitopen(t_long *data);
 void replace_texture(t_long *data);
 void print_playeronexit(t_long *data);
+void mlx_destroy_so_long(t_long *data);
 
 //player
 int player_key(int keycode, t_long *data);

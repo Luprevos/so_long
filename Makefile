@@ -6,13 +6,13 @@
 #    By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/24 19:16:50 by luprevos          #+#    #+#              #
-#    Updated: 2025/03/29 00:34:22 by luprevos         ###   ########.fr        #
+#    Updated: 2025/03/31 17:04:05 by luprevos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -g3
 MLX = -L./minilibx-linux -lmlx -lX11 -lXext -lm
 INCLUDES = -I./minilibx-linux -I.
 

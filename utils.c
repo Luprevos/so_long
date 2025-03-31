@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:10:43 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/27 17:12:51 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/31 18:46:14 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ int ft_strcmp(char *s1, char *s2)
 
 int		count_lines(int fd, t_long *data)
 {
-	int		lines;
 	char	*str = get_next_line(fd);
 	int c;
 	
 	c = 0;
-	lines = 0;
+	data->line_number = 0;
+	if (!str)
+		return (printf("ERROR: le file est vide ou inexistant\n"));
 	while (str != NULL)
 	{
 		if (c == 0)
@@ -42,12 +43,11 @@ int		count_lines(int fd, t_long *data)
 			printf("ERROR : tailles lignes\n");
 			return(0);
 		}
-		lines++;
+		data->line_number++;
 		free(str);
 		str = get_next_line(fd);	
 	}
-	data->line_number = lines;
-	return(1);
+	return(0);
 }
 
 int	ft_strlenn(char *str)
@@ -93,8 +93,7 @@ void ft_mapcopy(t_long *data, char **argv, int fd)
 	while (i != data->line_number)
 	{
 		str = get_next_line(fd);
-		data->map[i] = ft_strdupmap(str, data);
-		//printf("%s", data->map[i]);
+		data->map[i] = str;
 		i++;
 	}
 }

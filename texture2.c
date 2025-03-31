@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 00:08:11 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/29 03:34:19 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:17:19 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,7 @@
 
 void print_exitopen(t_long *data)
 {
-	void *img;
-	int *i;
-	int a;
-
-	a = IMAGEWEIGTH;
-	i = &a;
-	img = mlx_xpm_file_to_image(data->mlx, "image/exitopen.xpm", i, i);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, img, data->x*IMAGEWEIGTH, data->y*IMAGEWEIGTH);	
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->exitopen_img, data->x*IMAGEWEIGTH, data->y*IMAGEWEIGTH);	
 }
 
 void replace_texture(t_long *data)
@@ -36,12 +29,20 @@ void replace_texture(t_long *data)
 }
 void print_playeronexit(t_long *data)
 {
-	void *img;
-	int *i;
-	int a;
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->playeronexit_img, data->playerx*IMAGEWEIGTH, data->playery*IMAGEWEIGTH);	
+}
 
-	a = IMAGEWEIGTH;
-	i = &a;
-	img = mlx_xpm_file_to_image(data->mlx, "image/playeronexit.xpm", i, i);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, img, data->playerx*IMAGEWEIGTH, data->playery*IMAGEWEIGTH);	
+void mlx_destroy_so_long(t_long *data)
+{
+	mlx_destroy_image(data->mlx, data->exitclose_img);
+	mlx_destroy_image(data->mlx, data->exitopen_img);
+	mlx_destroy_image(data->mlx, data->vide_img);
+	mlx_destroy_image(data->mlx, data->item_img);
+	mlx_destroy_image(data->mlx, data->player_img);
+	mlx_destroy_image(data->mlx, data->playeronexit_img);
+	mlx_destroy_image(data->mlx, data->wall_img);
+	mlx_destroy_window(data->mlx, data->mlx_win);
+	mlx_destroy_display(data->mlx);
+	free_map(data->map);
+	free(data);
 }
