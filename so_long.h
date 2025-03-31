@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:24:26 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/31 19:03:04 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:50:28 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void map_is_map(t_long *data);
 //flood_fill
 void flood_fill(t_long *data, int i, int j, char **temp);
 int perfect_parsing(t_long *data);
-void	free_map(char **map);
+void	free_map(char **map, t_long *data);
 
 //mlx
 int new_window_mlx(t_long *data);
@@ -106,7 +106,7 @@ void print_exitclose(t_long *data);
 void print_exitopen(t_long *data);
 void replace_texture(t_long *data);
 void print_playeronexit(t_long *data);
-void mlx_destroy_so_long(t_long *data);
+void mlx_destroy_so_long(t_long *data, bool freeMlx);
 
 //player
 int player_key(int keycode, t_long *data);

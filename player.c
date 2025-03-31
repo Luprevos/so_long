@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 00:33:53 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/31 19:12:32 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:24:53 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int player_key(int keycode, t_long *data)
 	}
     else if (keycode == 100 && data->map[data->playery][data->playerx + 1] != WALL)
     {
-		    data->playerx += 1;
-			data->move++;
+		data->playerx += 1;
+		data->move++;
 	}
     else if (keycode == 119 && data->map[data->playery - 1][data->playerx] != WALL)
     {
-		    data->playery -= 1;
-			data->move++;
+		data->playery -= 1;
+		data->move++;
 	}
 	else if (keycode == 115 && data->map[data->playery + 1][data->playerx] != WALL)
     {

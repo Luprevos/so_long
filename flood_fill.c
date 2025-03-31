@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 14:34:41 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/31 17:47:48 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:56:32 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,22 +53,20 @@ int	perfect_parsing(t_long *data)
 	j = data->x;
 	data->exit = false;
 	flood_fill(data, i, j, temp);
-	if (data->item != data->C)
+	if (data->item != data->C || data->exit == false)
 	{
-		printf("ERROR : Item bloquer\n");
+		printf("ERROR : Item bloquer || Sortie bloquer\n");
+		free_map(temp, data);
 		return (0);
 	}
-	if (data->exit == false)
-	{
-		printf("ERROR : Sortie bloquer\n");
-		return (0);
-	}
-	free_map(temp);
+	free_map(temp, data);
 	return (1);
 }
-void	free_map(char **map)
+
+void	free_map(char **map, t_long *data)
 {
-	int i;
+	(void)data;
+	int	i;
 
 	i = 0;
 	while (map && map[i])
@@ -76,5 +74,6 @@ void	free_map(char **map)
 		free(map[i]);
 		i++;
 	}
-	free(map);
+	if (map)
+		free(map);
 }

@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:10:43 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/31 18:46:14 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:56:10 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		count_lines(int fd, t_long *data)
 		}
 		data->line_number++;
 		free(str);
-		str = get_next_line(fd);	
+		str = get_next_line(fd);
 	}
 	return(0);
 }
@@ -76,7 +76,7 @@ char *ft_strdupmap(char *s2, t_long *data)
 		s1[i] = s2[i];
 		i++;
 	}
-	s1[i] = '\0';
+	s1[data->line_len] = '\0';
 	return(s1);	
 }
 
@@ -96,4 +96,5 @@ void ft_mapcopy(t_long *data, char **argv, int fd)
 		data->map[i] = str;
 		i++;
 	}
+	data->map[i] = NULL;
 }

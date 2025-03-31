@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:23:52 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/31 19:04:40 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:35:21 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,12 @@ int	main(int argc, char **argv)
 	close(fd);
 	ft_mapcopy(data, argv, fd);
 	if (perfect_parsing(data) == 0)
+	{
+		mlx_destroy_so_long(data, false);
 		return (0);
+	}
 	new_window_mlx(data);
 	mlx_loop(data->mlx);
-	mlx_destroy_so_long(data);
+	mlx_destroy_so_long(data, true);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 15:36:04 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/31 19:17:38 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:36:37 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int print_map(t_long *data)
 		}
 		if(data->map[data->y][data->x] == WALL)
 		 	print_wall(data);
-		if(data->map[data->y][data->x] == data->map[data->playery][data->playerx])
-			print_player(data);
 		if(data->map[data->y][data->x] == VIDE)
 			print_void(data);
+		if(data->map[data->y][data->x] == data->map[data->playery][data->playerx])
+			print_player(data);
 		if(data->map[data->y][data->x] == ITEM)
 			print_item(data);
 		print_exit(data, data->map);
