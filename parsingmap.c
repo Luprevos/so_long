@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:17:34 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/31 16:58:18 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/04/01 17:23:51 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	check_exit(t_long *data)
 		{
 			i++;
 			j = 0;
-		}	
+		}
 		j++;
 	}
 	if (i == data->line_number - 1 && j == 1)
@@ -90,8 +90,9 @@ void	check_item(t_long *data)
 		j = 0;
 	}
 	if (data->item < 1)
-		printf("ERROR : Nombre d'item insufisant\n");
+		free_and_exit("ERROR : Nombre d'item insufisant\n", data, false);
 }
+
 void	check_over(t_long *data)
 {
 	int	i;
@@ -117,35 +118,30 @@ void	check_over(t_long *data)
 		j = 0;
 	}
 	if (item > 2)
-		printf("ERROR : Nombre de sortie | entrer > 1\n");
+		free_and_exit("ERROR : Nombre de sortie | entrer > 1\n", data, false);
 }
 
-void map_is_map(t_long *data)
+void	map_is_map(t_long *data)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	j = 0;
-	while(i < data->line_number - 1)
+	while (i < data->line_number - 1)
 	{
-		if(data->map[i][j] == WALL \
+		if (data->map[i][j] == WALL \
 			|| data->map[i][j] == VIDE \
 			||data->map[i][j] == PLAYER \
 			|| data->map[i][j] == ITEM \
 			|| data->map[i][j] == EXIT)
 			j++;
-		else if(data->map[i][j] == '\n')
+		else if (data->map[i][j] == '\n')
 		{
 			i++;
 			j = 0;
 		}
 		else
-		{
-			printf("ERROR: map invalide from map_is_map\n");
-			break;
-		}	
+			free_and_exit("ERROR: map invalide from map_is_map\n", data, false);
 	}
 }
-
-

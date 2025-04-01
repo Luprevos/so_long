@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 14:34:41 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/31 19:56:32 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/04/01 17:42:13 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	flood_fill(t_long *data, int i, int j, char **temp)
 		temp[i][j] = WALL;
 	else if (temp[i][j] == ITEM)
 	{
-		data->C++;
+		data->c++;
 		temp[i][j] = WALL;
 	}
 	else if (temp[i][j] == EXIT)
@@ -53,19 +53,18 @@ int	perfect_parsing(t_long *data)
 	j = data->x;
 	data->exit = false;
 	flood_fill(data, i, j, temp);
-	if (data->item != data->C || data->exit == false)
+	if (data->item != data->c || data->exit == false)
 	{
 		printf("ERROR : Item bloquer || Sortie bloquer\n");
-		free_map(temp, data);
+		free_map(temp);
 		return (0);
 	}
-	free_map(temp, data);
+	free_map(temp);
 	return (1);
 }
 
-void	free_map(char **map, t_long *data)
+void	free_map(char **map)
 {
-	(void)data;
 	int	i;
 
 	i = 0;

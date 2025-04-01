@@ -6,7 +6,7 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:00:16 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/31 19:36:10 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/04/01 17:20:50 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,7 @@ void	check_first_last_characters(t_long *data)
 		while (map[i][j] && map[i][j] != '\n')
 		{
 			if (map[i][0] != '1' || map[i][ft_strlenn(map[i]) - 1] != '1')
-			{
-				printf("ERROR : bordure de map mal definit\n");
-				exit(1);
-			}
+				free_and_exit("ERROR : bordure de map\n", data, false);
 			j++;
 		}
 		i++;
@@ -65,16 +62,13 @@ void	check_first_last_line(t_long *data)
 		while (map[0][j] == '1')
 			j++;
 		if (map[0][j] != '\n')
-			printf("ERROR : Premiere ligne mal definit\n");
+			free_and_exit("ERROR : Premiere ligne mal definit\n", data, false);
 		j = 0;
 		i = data->line_number - 1;
 		while (map[i][j] == '1')
 			j++;
 		if (map[i][j] != '\0')
-		{
-			printf("ERROR : dermiere ligne mal definit\n");
-			exit(1);
-		}
+			free_and_exit("ERROR : dermiere ligne mal definit\n", data, false);
 	}
 }
 
@@ -91,7 +85,7 @@ void	check_map_format(t_long *data)
 	{
 		if ((ft_strlenn(map[i])) == data->line_number)
 		{
-			printf("ERROR : La map est un carre\n");
+			free_and_exit("ERROR : La map est un carre\n", data, false);
 			exit(1);
 		}
 		i++;

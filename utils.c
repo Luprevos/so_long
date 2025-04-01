@@ -6,27 +6,28 @@
 /*   By: luprevos <luprevos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:10:43 by luprevos          #+#    #+#             */
-/*   Updated: 2025/03/31 19:56:10 by luprevos         ###   ########.fr       */
+/*   Updated: 2025/04/01 17:56:34 by luprevos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-	while(*s1 && *s2 && *s1 == *s2)
+	while (*s1 && *s2 && *s1 == *s2)
 	{
 		s1++;
 		s2++;
 	}
-	return(*s1 - *s2);
+	return (*s1 - *s2);
 }
 
-int		count_lines(int fd, t_long *data)
+int	count_lines(int fd, t_long *data)
 {
-	char	*str = get_next_line(fd);
-	int c;
-	
+	char	*str;
+	int		c;
+
+	str = get_next_line(fd);
 	c = 0;
 	data->line_number = 0;
 	if (!str)
@@ -41,13 +42,13 @@ int		count_lines(int fd, t_long *data)
 		if (ft_strlenn(str) != data->line_len)
 		{
 			printf("ERROR : tailles lignes\n");
-			return(0);
+			return (0);
 		}
 		data->line_number++;
 		free(str);
 		str = get_next_line(fd);
 	}
-	return(0);
+	return (0);
 }
 
 int	ft_strlenn(char *str)
@@ -58,35 +59,37 @@ int	ft_strlenn(char *str)
 	while (str[len] != '\n')
 	{
 		if (str[len] == '\0')
-			return(len);
+			return (len);
 		len++;
 	}
 	return (len);
 }
 
-char *ft_strdupmap(char *s2, t_long *data)
+char	*ft_strdupmap(char *s2, t_long *data)
 {
-	char *s1;
-	int i = 0;
+	char	*s1;
+	int		i;
+
+	i = 0;
 	s1 = malloc(sizeof(char) * (data->line_len + 1));
 	if (!s1)
 		return (NULL);
-	while(s2[i])
+	while (s2[i])
 	{
 		s1[i] = s2[i];
 		i++;
 	}
 	s1[data->line_len] = '\0';
-	return(s1);	
+	return (s1);
 }
 
-void ft_mapcopy(t_long *data, char **argv, int fd)
+void	ft_mapcopy(t_long *data, char **argv, int fd)
 {
-	int i;
-	char *str;
+	int		i;
+	char	*str;
 
 	i = 0;
-	data->map = malloc(sizeof(char*) * (data->line_number + 1));
+	data->map = malloc(sizeof(char *) * (data->line_number + 1));
 	if (!data->map)
 		printf("ERROR : imp de malloc la map");
 	fd = open(argv[1], O_RDONLY);
